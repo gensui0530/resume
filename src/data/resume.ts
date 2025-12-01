@@ -118,8 +118,8 @@ export const resumeData: ResumeData = {
     {
       category: "Frontend",
       skills: [
-        { name: "TypeScript", level: "expert" },
-        { name: "React", level: "expert" },
+        { name: "TypeScript", level: "advanced" },
+        { name: "React", level: "advanced" },
         { name: "Vite", level: "advanced" },
         { name: "styled-components", level: "advanced" },
         { name: "React Hook Form", level: "advanced" },
