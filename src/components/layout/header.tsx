@@ -57,9 +57,9 @@ export function Header() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px]">
-              <SheetTitle className="text-left">Menu</SheetTitle>
-              <nav className="flex flex-col gap-4 mt-8">
+            <SheetContent side="right" className="w-[300px] p-6">
+              <SheetTitle className="text-left text-lg">Menu</SheetTitle>
+              <nav className="flex flex-col gap-4 mt-6">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.href}

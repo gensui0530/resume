@@ -8,6 +8,7 @@ export const resumeData: ResumeData = {
     location: "Saitama, Japan",
     summary:
       "言語聴覚士として8年間の臨床経験を経て、ソフトウェアエンジニアへキャリアチェンジ。現在はUI/UXエンジニアとして、プロダクトの成長と開発体験の向上に貢献しています。",
+    avatar: "/Gemini_Generated_Image_35qsrp35qsrp35qs.png",
     social: [
       {
         platform: "github",
