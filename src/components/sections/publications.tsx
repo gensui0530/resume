@@ -10,10 +10,10 @@ interface PublicationsSectionProps {
 
 export function PublicationsSection({ publications }: PublicationsSectionProps) {
   return (
-    <section id="publications" className="py-20">
+    <section id="publications" className="py-8 md:py-8">
       <div className="container mx-auto px-4">
         <FadeIn>
-          <h2 className="text-2xl md:text-3xl font-bold mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">
             Publications & Presentations
           </h2>
         </FadeIn>

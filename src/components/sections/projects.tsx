@@ -81,10 +81,10 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   const otherProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-8 md:py-8">
       <div className="container mx-auto px-4">
         <FadeIn>
-          <h2 className="text-2xl md:text-3xl font-bold mb-12">Projects</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Projects</h2>
         </FadeIn>
 
         {featuredProjects.length > 0 && (

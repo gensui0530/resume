@@ -23,7 +23,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col justify-center pt-16"
+      className="flex flex-col pt-24 pb-12 md:pt-32 md:pb-20"
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-row items-center gap-8 md:gap-12">

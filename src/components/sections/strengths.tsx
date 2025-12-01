@@ -61,10 +61,10 @@ function StrengthCard({ strength, index }: { strength: Strength; index: number }
 
 export function StrengthsSection({ strengths }: StrengthsSectionProps) {
   return (
-    <section id="strengths" className="py-20">
+    <section id="strengths" className="py-8 md:py-8">
       <div className="container mx-auto px-4">
         <FadeIn>
-          <h2 className="text-2xl md:text-3xl font-bold mb-12">Strengths</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Strengths</h2>
         </FadeIn>
 
         <div className="grid md:grid-cols-3 gap-6">

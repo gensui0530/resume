@@ -45,7 +45,7 @@ const skillIcons: Record<string, string> = {
 
 export function SkillsSection({ skillCategories }: SkillsSectionProps) {
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-8 md:py-8">
       <div className="container mx-auto px-4">
         <FadeIn>
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Skills</h2>

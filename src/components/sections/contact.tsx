@@ -20,7 +20,7 @@ interface ContactSectionProps {
 
 export function ContactSection({ profile }: ContactSectionProps) {
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="pt-6 pb-6 md:pt-6 md:pb-6">
       <div className="container mx-auto px-4">
         <FadeIn>
           <div className="max-w-2xl mx-auto text-center">
