@@ -64,8 +64,29 @@ export interface Strength {
   icon: "users" | "lightbulb" | "rocket";
 }
 
+export interface ContactInfo {
+  workStyles: string[];
+  interests: string[];
+  domains: string[];
+  responseTime: string;
+  casualMessage: string;
+}
+
+export interface ContributionItem {
+  target: string;
+  stance: string;
+}
+
+export interface Vision {
+  goal: string;
+  philosophy: string;
+  contributions: ContributionItem[];
+}
+
 export interface ResumeData {
   profile: Profile;
+  contact: ContactInfo;
+  vision: Vision;
   strengths: Strength[];
   experiences: Experience[];
   skillCategories: SkillCategory[];

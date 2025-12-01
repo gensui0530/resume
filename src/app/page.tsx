@@ -4,6 +4,7 @@ import { StrengthsSection } from "@/components/sections/strengths";
 import { SkillsSection } from "@/components/sections/skills";
 import { ExperienceSection } from "@/components/sections/experience";
 import { PublicationsSection } from "@/components/sections/publications";
+import { VisionSection } from "@/components/sections/vision";
 import { ContactSection } from "@/components/sections/contact";
 import { Separator } from "@/components/ui/separator";
 
@@ -20,7 +21,9 @@ export default function Home() {
       <Separator className="container mx-auto" />
       <PublicationsSection publications={resumeData.publications} />
       <Separator className="container mx-auto" />
-      <ContactSection profile={resumeData.profile} />
+      <VisionSection vision={resumeData.vision} />
+      <Separator className="container mx-auto" />
+      <ContactSection profile={resumeData.profile} contact={resumeData.contact} />
     </div>
   );
 }

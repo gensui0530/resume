@@ -1,16 +1,21 @@
 "use client";
 
 import { motion } from "motion/react";
-import { GithubIcon, LinkedinIcon, TwitterIcon, Mail, MapPin } from "lucide-react";
+import { Icon } from "@iconify/react";
+import { Mail, MapPin } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Profile } from "@/types/resume";
 import { fadeInUp, defaultTransition } from "@/lib/animations";
+import { ComponentType } from "react";
 
-const socialIcons = {
-  github: GithubIcon,
-  linkedin: LinkedinIcon,
-  twitter: TwitterIcon,
+const iconifyIcons: Record<string, string> = {
+  github: "mdi:github",
+  linkedin: "mdi:linkedin",
+  twitter: "mdi:twitter",
+};
+
+const lucideIcons: Record<string, ComponentType<{ className?: string }>> = {
   email: Mail,
   website: MapPin,
 };
@@ -70,7 +75,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
                   className="shrink-0 md:hidden"
                 >
                   <Avatar className="size-24">
-                    <AvatarImage src={profile.avatar} alt={profile.name} />
+                    <AvatarImage src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${profile.avatar}`} alt={profile.name} />
                     <AvatarFallback className="text-2xl">GK</AvatarFallback>
                   </Avatar>
                 </motion.div>
@@ -100,7 +105,8 @@ export function HeroSection({ profile }: HeroSectionProps) {
               className="flex flex-wrap gap-3"
             >
               {profile.social.map((link) => {
-                const Icon = socialIcons[link.platform];
+                const iconifyIcon = iconifyIcons[link.platform];
+                const LucideIcon = lucideIcons[link.platform];
                 return (
                   <motion.div
                     key={link.platform}
@@ -114,7 +120,11 @@ export function HeroSection({ profile }: HeroSectionProps) {
                         rel="noopener noreferrer"
                         className="gap-2"
                       >
-                        <Icon className="h-5 w-5" />
+                        {iconifyIcon ? (
+                          <Icon icon={iconifyIcon} className="h-5 w-5" />
+                        ) : LucideIcon ? (
+                          <LucideIcon className="h-5 w-5" />
+                        ) : null}
                         {link.label}
                       </a>
                     </Button>
@@ -133,7 +143,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
               className="hidden md:block shrink-0"
             >
               <Avatar className="size-64">
-                <AvatarImage src={profile.avatar} alt={profile.name} />
+                <AvatarImage src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${profile.avatar}`} alt={profile.name} />
                 <AvatarFallback className="text-4xl">GK</AvatarFallback>
               </Avatar>
             </motion.div>

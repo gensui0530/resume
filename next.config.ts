@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   basePath: isProd ? "/resume" : "",
   assetPrefix: isProd ? "/resume/" : "",
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd ? "/resume" : "",
+  },
 };
 
 export default nextConfig;

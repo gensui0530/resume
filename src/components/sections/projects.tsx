@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Github, ExternalLink } from "lucide-react";
+import { Icon } from "@iconify/react";
+import { ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -51,7 +52,7 @@ function ProjectCard({ project }: { project: Project }) {
                   rel="noopener noreferrer"
                   className="gap-2"
                 >
-                  <Github className="h-4 w-4" />
+                  <Icon icon="mdi:github" className="h-4 w-4" />
                   Code
                 </a>
               </Button>

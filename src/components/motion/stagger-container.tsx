@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { ReactNode } from "react";
-import { staggerContainer, staggerItem, defaultTransition } from "@/lib/animations";
+import { defaultTransition } from "@/lib/animations";
 
 interface StaggerContainerProps {
   children: ReactNode;

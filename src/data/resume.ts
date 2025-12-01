@@ -8,7 +8,7 @@ export const resumeData: ResumeData = {
     location: "Saitama, Japan",
     summary:
       "言語聴覚士として8年間の臨床経験を経て、ソフトウェアエンジニアへキャリアチェンジ。現在はUI/UXエンジニアとして、プロダクトの成長と開発体験の向上に貢献しています。",
-    avatar: "/Gemini_Generated_Image_35qsrp35qsrp35qs.png",
+    avatar: "/profile-image.png",
     social: [
       {
         platform: "github",
@@ -22,6 +22,37 @@ export const resumeData: ResumeData = {
       },
     ],
   },
+  contact: {
+    workStyles: ["フルリモート可", "副業・業務委託相談可"],
+    interests: [
+      "デザインシステム",
+      "フロントエンド設計・品質改善",
+      "AI駆動開発",
+      "プロダクトマネジメント",
+    ],
+    domains: ["医療・ヘルスケア", "HR・人材"],
+    responseTime: "通常1〜2営業日以内に返信いたします",
+    casualMessage: "まずはお気軽にお話ししましょう！",
+  },
+  vision: {
+    goal: "ビジネスと技術を繋ぎ、プロダクトの成長を牽引するUI/UXエンジニア・プロダクトマネージャーを目指しています。ユーザー視点を第一に考え、要件定義から設計・実装まで一貫して携わった経験を活かすことで、事業成功に貢献したいです。",
+    philosophy:
+      "「どうすれば事業が成功するか」を起点に考え、技術でビジネス課題を解決することを大切にしています。良いプロダクトは、良い開発環境から生まれると信じています。",
+    contributions: [
+      {
+        target: "事業",
+        stance: "ビジネス課題を技術で解決し、事業成長に直結する成果を出す",
+      },
+      {
+        target: "チーム",
+        stance: "仕組みを作り、チーム全体の生産性を最大化する",
+      },
+      {
+        target: "プロダクト",
+        stance: "0→1でスケーラブルな基盤を構築し、品質と開発体験を向上させる",
+      },
+    ],
+  },
   strengths: [
     {
       id: "strength-1",
@@ -31,6 +62,7 @@ export const resumeData: ResumeData = {
         "8年間の臨床経験で患者・家族との信頼関係構築",
         "多職種連携（医師・看護師・PT・OT）でのコミュニケーション",
         "一人ひとりのニーズに応じた課題解決アプローチ",
+        "アカデミックな視点での問題分析とエビデンスに基づく提案",
       ],
       icon: "users",
     },
@@ -40,6 +72,7 @@ export const resumeData: ResumeData = {
       subtitle: "「事業が成功するには」を起点に考える",
       points: [
         "ユーザーヒアリングから仕様策定までの上流工程",
+        "プロダクトチーム間の連携",
         "ステークホルダーとの期待値調整・スコープ管理",
         "技術的意思決定をビジネス価値で判断",
       ],
@@ -52,7 +85,8 @@ export const resumeData: ResumeData = {
       points: [
         "エンジニア1人体制でプロジェクトを完遂した経験",
         "課題を見つけ、提案し、実行に移す主体性",
-        "新人メンバーのサポート・技術メンター経験",
+        "新人メンバーのサポート・オンボーディング経験",
+        "継続的な学習とスキルアップへの意欲",
       ],
       icon: "rocket",
     },
