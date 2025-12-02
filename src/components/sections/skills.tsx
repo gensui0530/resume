@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useInView } from "motion/react";
 import { FadeIn } from "@/components/motion/fade-in";
 import {
@@ -19,17 +19,23 @@ interface SkillsSectionProps {
 export function SkillsSection({ skillCategories }: SkillsSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true });
-  const [showOnboarding, setShowOnboarding] = useState(false);
+  const hasShownRef = useRef<boolean | null>(null);
 
+  // 初回レンダリング時にlocalStorageをチェック
+  if (hasShownRef.current === null && typeof window !== "undefined") {
+    hasShownRef.current = localStorage.getItem(STORAGE_KEY) === "true";
+  }
+
+  // 派生状態として計算
+  const showOnboarding = isInView && hasShownRef.current === false;
+
+  // localStorageへの保存のみをuseEffectで行う
   useEffect(() => {
-    if (isInView && typeof window !== "undefined") {
-      const hasShown = localStorage.getItem(STORAGE_KEY);
-      if (!hasShown) {
-        setShowOnboarding(true);
-        localStorage.setItem(STORAGE_KEY, "true");
-      }
+    if (showOnboarding) {
+      localStorage.setItem(STORAGE_KEY, "true");
+      hasShownRef.current = true;
     }
-  }, [isInView]);
+  }, [showOnboarding]);
 
   return (
     <section ref={sectionRef} id="skills" className="py-8 md:py-8">
