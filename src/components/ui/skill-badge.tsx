@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/popover";
 import { Skill } from "@/types/resume";
 
+const STORAGE_KEY = "skills-popover-shown";
+
 const levelStars = {
   beginner: "★",
   intermediate: "★★",
@@ -45,31 +47,33 @@ const skillIcons: Record<string, string> = {
 
 interface SkillBadgeProps {
   skill: Skill;
-  autoShow?: boolean;
+  triggerOnboarding?: boolean;
 }
 
-export function SkillBadge({ skill, autoShow = false }: SkillBadgeProps) {
+export function SkillBadge({ skill, triggerOnboarding = false }: SkillBadgeProps) {
   const [open, setOpen] = useState(false);
 
-  // 自動表示オンボーディング
+  // オンボーディング自動表示（外部システムlocalStorageとの同期）
   useEffect(() => {
-    if (autoShow && skill.description) {
-      // スクロール完了を待ってから表示
-      const showTimer = setTimeout(() => {
-        setOpen(true);
-      }, 800);
+    if (!triggerOnboarding || !skill.description) return;
 
-      // 5秒後に閉じる
-      const hideTimer = setTimeout(() => {
-        setOpen(false);
-      }, 800 + 5000);
+    const hasShown = localStorage.getItem(STORAGE_KEY);
+    if (hasShown) return;
 
-      return () => {
-        clearTimeout(showTimer);
-        clearTimeout(hideTimer);
-      };
-    }
-  }, [autoShow, skill.description]);
+    const showTimer = setTimeout(() => {
+      setOpen(true);
+      localStorage.setItem(STORAGE_KEY, "true");
+    }, 800);
+
+    const hideTimer = setTimeout(() => {
+      setOpen(false);
+    }, 800 + 5000);
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
+  }, [triggerOnboarding, skill.description]);
 
   const badgeContent = (
     <Badge
@@ -115,6 +119,7 @@ export function SkillBadge({ skill, autoShow = false }: SkillBadgeProps) {
       </PopoverTrigger>
       <PopoverContent
         side="bottom"
+        updatePositionStrategy="always"
         className="w-auto max-w-[280px] p-4 text-sm bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border border-white/20 dark:border-gray-700/50 shadow-xl shadow-black/5 dark:shadow-black/20 rounded-xl"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

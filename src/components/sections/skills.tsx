@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useInView } from "motion/react";
 import { FadeIn } from "@/components/motion/fade-in";
 import {
@@ -10,8 +10,6 @@ import {
 import { SkillBadge } from "@/components/ui/skill-badge";
 import { SkillCategory } from "@/types/resume";
 
-const STORAGE_KEY = "skills-popover-shown";
-
 interface SkillsSectionProps {
   skillCategories: SkillCategory[];
 }
@@ -19,23 +17,6 @@ interface SkillsSectionProps {
 export function SkillsSection({ skillCategories }: SkillsSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true });
-  const hasShownRef = useRef<boolean | null>(null);
-
-  // 初回レンダリング時にlocalStorageをチェック
-  if (hasShownRef.current === null && typeof window !== "undefined") {
-    hasShownRef.current = localStorage.getItem(STORAGE_KEY) === "true";
-  }
-
-  // 派生状態として計算
-  const showOnboarding = isInView && hasShownRef.current === false;
-
-  // localStorageへの保存のみをuseEffectで行う
-  useEffect(() => {
-    if (showOnboarding) {
-      localStorage.setItem(STORAGE_KEY, "true");
-      hasShownRef.current = true;
-    }
-  }, [showOnboarding]);
 
   return (
     <section ref={sectionRef} id="skills" className="py-8 md:py-8">
@@ -67,7 +48,7 @@ export function SkillsSection({ skillCategories }: SkillsSectionProps) {
                     <StaggerItem key={skill.name}>
                       <SkillBadge
                         skill={skill}
-                        autoShow={showOnboarding && skill.name === "TypeScript"}
+                        triggerOnboarding={isInView && skill.name === "TypeScript"}
                       />
                     </StaggerItem>
                   ))}
