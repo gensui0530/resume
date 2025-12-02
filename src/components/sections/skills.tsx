@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useInView } from "motion/react";
 import { FadeIn } from "@/components/motion/fade-in";
 import {
@@ -17,6 +17,7 @@ interface SkillsSectionProps {
 export function SkillsSection({ skillCategories }: SkillsSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true });
+  const [openSkill, setOpenSkill] = useState<string | null>(null);
 
   return (
     <section ref={sectionRef} id="skills" className="py-8 md:py-8">
@@ -48,7 +49,13 @@ export function SkillsSection({ skillCategories }: SkillsSectionProps) {
                     <StaggerItem key={skill.name}>
                       <SkillBadge
                         skill={skill}
-                        triggerOnboarding={isInView && skill.name === "TypeScript"}
+                        isOpen={openSkill === skill.name}
+                        onOpenChange={(open) =>
+                          setOpenSkill(open ? skill.name : null)
+                        }
+                        triggerOnboarding={
+                          isInView && skill.name === "TypeScript"
+                        }
                       />
                     </StaggerItem>
                   ))}
