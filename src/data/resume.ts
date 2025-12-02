@@ -153,54 +153,146 @@ export const resumeData: ResumeData = {
     {
       category: "Frontend",
       skills: [
-        { name: "TypeScript", level: "advanced" },
-        { name: "React", level: "advanced" },
-        { name: "Vite", level: "advanced" },
-        { name: "styled-components", level: "advanced" },
-        { name: "React Hook Form", level: "advanced" },
-        { name: "Zod", level: "advanced" },
-        { name: "Jotai", level: "intermediate" },
+        {
+          name: "TypeScript",
+          level: "advanced",
+          description: "型安全な設計でバグを未然に防ぎ、保守性の高いコードを実現",
+        },
+        {
+          name: "React",
+          level: "advanced",
+          description: "Hooks・Suspenseを駆使したモダンな状態管理とUI設計",
+        },
+        {
+          name: "Vite",
+          level: "advanced",
+          description: "高速なHMRとビルドで開発体験を大幅に向上",
+        },
+        {
+          name: "styled-components",
+          level: "advanced",
+          description: "CSS-in-JSでコンポーネント単位のスタイル管理を実現",
+        },
+        {
+          name: "React Hook Form",
+          level: "advanced",
+          description: "パフォーマンスに優れた宣言的なフォーム状態管理",
+        },
+        {
+          name: "Zod",
+          level: "advanced",
+          description: "TypeScriptファーストなスキーマバリデーション",
+        },
+        {
+          name: "Jotai",
+          level: "intermediate",
+          description: "アトミックな状態管理でシンプルかつ軽量な設計",
+        },
       ],
     },
     {
       category: "Backend",
       skills: [
-        { name: "PHP", level: "advanced" },
-        { name: "Laravel", level: "advanced" },
-        { name: "C#", level: "beginner" },
+        {
+          name: "PHP",
+          level: "advanced",
+          description: "Laravel中心にAPIとバックエンド全般を担当",
+        },
+        {
+          name: "Laravel",
+          level: "advanced",
+          description: "MVCアーキテクチャとEloquentで効率的なAPI開発",
+        },
+        {
+          name: "C#",
+          level: "beginner",
+          description: "基本的な文法理解とアプリケーションの保守運用経験",
+        },
       ],
     },
     {
       category: "Database",
       skills: [
-        { name: "PostgreSQL", level: "intermediate" },
-        { name: "MySQL", level: "intermediate" },
-        { name: "Elasticsearch", level: "intermediate" },
+        {
+          name: "PostgreSQL",
+          level: "intermediate",
+          description: "複雑なクエリ設計とパフォーマンスチューニング",
+        },
+        {
+          name: "MySQL",
+          level: "intermediate",
+          description: "5.7→8.0のメジャーバージョンアップを完遂",
+        },
+        {
+          name: "Elasticsearch",
+          level: "intermediate",
+          description: "全文検索エンジンの設計と運用",
+        },
       ],
     },
     {
       category: "Infrastructure",
       skills: [
-        { name: "AWS", level: "intermediate" },
-        { name: "Docker", level: "intermediate" },
-        { name: "GitHub Actions", level: "advanced" },
+        {
+          name: "AWS",
+          level: "intermediate",
+          description: "EC2/RDS/S3/CloudFrontなど基本サービスの構築・運用",
+        },
+        {
+          name: "Docker",
+          level: "intermediate",
+          description: "開発環境のコンテナ化と効率的な環境構築",
+        },
+        {
+          name: "GitHub Actions",
+          level: "advanced",
+          description: "CI/CDパイプラインの設計・構築でデプロイを自動化",
+        },
       ],
     },
     {
       category: "Testing & Quality",
       skills: [
-        { name: "Vitest", level: "advanced" },
-        { name: "React Testing Library", level: "advanced" },
-        { name: "PHPUnit", level: "intermediate" },
-        { name: "ESLint", level: "advanced" },
+        {
+          name: "Vitest",
+          level: "advanced",
+          description: "Viteネイティブな高速テストでTDD/BDDを実践",
+        },
+        {
+          name: "React Testing Library",
+          level: "advanced",
+          description: "ユーザー視点のテストで実際の動作を検証",
+        },
+        {
+          name: "PHPUnit",
+          level: "intermediate",
+          description: "Laravelアプリケーションのユニットテスト",
+        },
+        {
+          name: "ESLint",
+          level: "advanced",
+          description: "カスタムルールで一貫したコード品質を維持",
+        },
       ],
     },
     {
       category: "AI & Tools",
       skills: [
-        { name: "Claude Code", level: "advanced" },
-        { name: "GitHub Copilot", level: "advanced" },
-        { name: "Figma", level: "intermediate" },
+        {
+          name: "Claude Code",
+          level: "advanced",
+          description: "AIペアプログラミングで実装速度を大幅改善",
+        },
+        {
+          name: "GitHub Copilot",
+          level: "advanced",
+          description: "コード補完と自動生成で開発効率を向上",
+        },
+        {
+          name: "Figma",
+          level: "intermediate",
+          description: "デザイナーとの協業とデザインシステム構築",
+        },
       ],
     },
   ],
