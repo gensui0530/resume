@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, useInView } from "motion/react";
+import { motion, useInView } from "motion/react";
 import { ReactNode, useRef } from "react";
 import { fadeInUp, defaultTransition } from "@/lib/animations";
 
@@ -26,13 +26,8 @@ export function FadeIn({
   className,
   direction = "up",
 }: FadeInProps) {
-  const prefersReducedMotion = useReducedMotion();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px 0px -50px 0px" });
-
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
 
   return (
     <div ref={ref} className={className}>
@@ -41,7 +36,7 @@ export function FadeIn({
         animate={isInView ? "animate" : "initial"}
         variants={directionVariants[direction]}
         transition={{ ...defaultTransition, delay, duration }}
-        className="w-full h-full"
+        className="w-full"
       >
         {children}
       </motion.div>
@@ -55,12 +50,6 @@ export function FadeInOnLoad({
   duration = 0.5,
   className,
 }: Omit<FadeInProps, "direction">) {
-  const prefersReducedMotion = useReducedMotion();
-
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
   return (
     <motion.div
       initial={fadeInUp.initial}
