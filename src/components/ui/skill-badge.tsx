@@ -80,6 +80,18 @@ export function SkillBadge({ skill, isOpen, onOpenChange, triggerOnboarding = fa
     };
   }, [triggerOnboarding, skill.description, onOpenChange]);
 
+  // スクロール時にポップバーを閉じる（ブレ防止）
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleScroll = () => {
+      onOpenChange(false);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isOpen, onOpenChange]);
+
   // PCのみホバーで開閉（スマホはRadix UIのタップ動作に任せる）
   const handlePointerEnter = useCallback((e: React.PointerEvent) => {
     if (e.pointerType === "mouse") onOpenChange(true);
@@ -89,7 +101,7 @@ export function SkillBadge({ skill, isOpen, onOpenChange, triggerOnboarding = fa
     if (e.pointerType === "mouse") onOpenChange(false);
   }, [onOpenChange]);
 
-  // ホバーアニメーションはPopoverが閉じている時のみ（ブレ防止）
+  // ホバーアニメーションはPopoverが閉じている時のみ
   const hoverAnimation = isOpen ? {} : HOVER_ANIMATION;
 
   const badgeContent = (
@@ -137,7 +149,6 @@ export function SkillBadge({ skill, isOpen, onOpenChange, triggerOnboarding = fa
       </PopoverTrigger>
       <PopoverContent
         side="bottom"
-        updatePositionStrategy="always"
         className={cn(
           "w-auto max-w-[280px] p-4 text-sm rounded-xl",
           "bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg",
