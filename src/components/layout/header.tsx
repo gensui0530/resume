@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { Menu } from "lucide-react";
 import { useState } from "react";
@@ -32,7 +33,8 @@ export function Header() {
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b"
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#" className="font-bold text-xl text-primary">
+        <a href="#" className="flex items-center gap-2 font-bold text-xl text-primary">
+          <Image src="/logo.png" alt="" width={24} height={24} className="rounded-sm" />
           Resume
         </a>
 

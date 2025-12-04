@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Resume",
+  title: "Resume | Gensui Kawaguchi",
   description: "Professional portfolio and resume website",
 };
 
