@@ -34,7 +34,7 @@ export function Header() {
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 font-bold text-xl text-primary">
-          <Image src="/logo.png" alt="" width={24} height={24} className="rounded-sm" />
+          <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`} alt="" width={24} height={24} className="rounded-sm" />
           Resume
         </a>
 
